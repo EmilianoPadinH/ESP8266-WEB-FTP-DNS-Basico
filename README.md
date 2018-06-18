@@ -25,7 +25,10 @@ La Configuracion IP Por Defecto Es:
 IP = 13.13.13.13
 Subnet = 255.255.255.0
 
-Los Archivos De La Carpeta data, Se Pueden Subir Por FTP Con La Configuracion Anterior, O Flashear Por Medio Del IDE de Arduino
+Los Archivos De La Carpeta data, Se Pueden Subir Por FTP Con La Configuracion Anterior. 
+Es Necesario Conectarse Por FTP Sin Cifrado (Only Use Plain FTP (Insecure) En El FileZilla Por Ej.)
+
+O Flashear Por Medio Del IDE de Arduino
 Desde Herramientas -> ESP8266 Sketch Data Upload (Esto Borrara Todos Los Archivos Que Se Encuentren En EL SPIFFS). 
 Para Activar La Opcion Esta Seguir Este Tutorial: http://esp8266.github.io/Arduino/versions/2.0.0/doc/filesystem.html#uploading-files-to-file-system
 
