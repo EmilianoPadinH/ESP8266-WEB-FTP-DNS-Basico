@@ -25,6 +25,10 @@ La Configuracion IP Por Defecto Es:
 IP = 13.13.13.13
 Subnet = 255.255.255.0
 
+La Configuracion DNS:
+Resuelve Todas Las Peticiones A La IP Configurada Del ESP8266.
+(Ej: www.google.com - 13.13.13.13 , www.playstation.com - 13.13.13.13)
+
 Los Archivos De La Carpeta data, Se Pueden Subir Por FTP Con La Configuracion Anterior. 
 Es Necesario Conectarse Por FTP Sin Cifrado (Only Use Plain FTP (Insecure) En El FileZilla Por Ej.)
 
