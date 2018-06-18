@@ -36,6 +36,10 @@ O Flashear Por Medio Del IDE de Arduino
 Desde Herramientas -> ESP8266 Sketch Data Upload (Esto Borrara Todos Los Archivos Que Se Encuentren En EL SPIFFS). 
 Para Activar La Opcion Esta Seguir Este Tutorial: http://esp8266.github.io/Arduino/versions/2.0.0/doc/filesystem.html#uploading-files-to-file-system
 
+Una Vez Subidos Los Archivos upload.html Y correcto.html, Los Proximos Archivos Se Pueden Subir Directamente Desde: Http://13.13.13.13/upload
+
+
+
 Este Sketch Se Puede Flashear, Sobre Un Bin Previo Por Ejemplo (#ESP8266XploitHost 2.7) Para Mantener Los Archivos Del Exploit.
 Para Esto En El IDE De Arduino La Opcion Erase Flash, Debe Estar En Only Sketch. 
 
