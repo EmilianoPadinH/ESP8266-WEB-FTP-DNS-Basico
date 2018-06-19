@@ -5,6 +5,9 @@
 #include "./ESP8266FtpServer.h"
 #include <ArduinoJson.h>
 
+//Creo Un Buffer Dinamico Para El JSON
+DynamicJsonBuffer jsonBuffer;
+
 //Configuracion Puerto DNS
 const byte PuertoDNS = 53;
 //Configuracion Puerto HTTP
@@ -12,10 +15,10 @@ const byte PuertoHTTP = 80;
 
 //Estructura Archivo De Configuracion
 struct ArchivoConfiguracion {
-  char *FTPUser = "Admin";
-  char *FTPPass = "Upload";
-  char *WIFISSID = "ESP8266";
-  char *WIFIPass = "12345678";
+  char* FTPUser = "Admin";
+  char* FTPPass = "34263276";
+  char* WIFISSID = "EmiPs4";
+  char* WIFIPass = "34263276";
   IPAddress IP = IPAddress(13,13,13,13);
   IPAddress Subnet = IPAddress(255,255,255,0);
 };
@@ -34,9 +37,6 @@ FtpServer FTP;
 void LeerConfiguracion() {
   //Abro El Archivo Configuracion.json
   File ArchivoConfig = SPIFFS.open("/Configuracion.json", "r");
-  //Creo Un Buffer Dinamico Para El JSON
-  DynamicJsonBuffer jsonBuffer;
-
   //Parseo El Archivo A UN JSON
   JsonObject &JSON = jsonBuffer.parseObject(ArchivoConfig);
   //Si No Pude Leer El JSON
@@ -50,6 +50,18 @@ void LeerConfiguracion() {
     Configuracion.WIFIPass = (char*)JSON["WIFIPass"].as<char*>();
     Configuracion.IP.fromString(JSON["IP"].as<String>());
     Configuracion.Subnet.fromString(JSON["Subnet"].as<String>());
+    Serial.println("WIFISSID: ");
+    Serial.println(Configuracion.WIFISSID);
+    Serial.println("WIFIPASS: ");
+    Serial.println(Configuracion.WIFIPass);
+    Serial.println("FTPUser: ");
+    Serial.println(Configuracion.FTPUser);
+    Serial.println("FTPPass: ");
+    Serial.println(Configuracion.FTPPass);
+    Serial.println("IP: ");
+    Serial.println(Configuracion.IP);
+    Serial.println("Subnet: ");
+    Serial.println(Configuracion.Subnet);
     //Cierro El Archivo
     ArchivoConfig.close();
   }
@@ -59,8 +71,6 @@ void LeerConfiguracion() {
 void GrabarConfiguracion() {
   //Abro El Archivo Configuracion.json
   File ArchivoConfig = SPIFFS.open("/Configuracion.json", "w");
-  //Creo Un Buffer Dinamico Para El JSON
-  DynamicJsonBuffer jsonBuffer;
   //Creo El Objeto JSON
   JsonObject &JSON = jsonBuffer.createObject();
   //Creo El Raiz Del JSON
@@ -95,7 +105,7 @@ char* String2Char(String Texto) {
 }
 
 //Funcion Para Configurar El WIFI y El FTP
-void ConfigurarWIFIyFTP() {
+void ConfigurarWIFIyFTP() {  
   //Seteo El Modo AP
   WiFi.mode(WIFI_AP);
   //Configuro La IP, Puerta De Enlace Y Mascara De Red
@@ -110,13 +120,12 @@ void ConfigurarWIFIyFTP() {
 
 
 void setup() {
-  Serial.begin(115200);
   //Inicio El FileSystem Donde Subo Los Html
   SPIFFS.begin();
 
   //Leer Configuracion
   LeerConfiguracion();
-    
+        
   //Configuracion WIFI Y FTP
   ConfigurarWIFIyFTP();
 
