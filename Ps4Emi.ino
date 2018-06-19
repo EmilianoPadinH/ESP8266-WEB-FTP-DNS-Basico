@@ -50,18 +50,6 @@ void LeerConfiguracion() {
     Configuracion.WIFIPass = (char*)JSON["WIFIPass"].as<char*>();
     Configuracion.IP.fromString(JSON["IP"].as<String>());
     Configuracion.Subnet.fromString(JSON["Subnet"].as<String>());
-    Serial.println("WIFISSID: ");
-    Serial.println(Configuracion.WIFISSID);
-    Serial.println("WIFIPASS: ");
-    Serial.println(Configuracion.WIFIPass);
-    Serial.println("FTPUser: ");
-    Serial.println(Configuracion.FTPUser);
-    Serial.println("FTPPass: ");
-    Serial.println(Configuracion.FTPPass);
-    Serial.println("IP: ");
-    Serial.println(Configuracion.IP);
-    Serial.println("Subnet: ");
-    Serial.println(Configuracion.Subnet);
     //Cierro El Archivo
     ArchivoConfig.close();
   }
