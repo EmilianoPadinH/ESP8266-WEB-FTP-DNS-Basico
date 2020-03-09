@@ -16,9 +16,9 @@ const byte PuertoHTTP = 80;
 //Estructura Archivo De Configuracion
 struct ArchivoConfiguracion {
   char* FTPUser = "Admin";
-  char* FTPPass = "34263276";
-  char* WIFISSID = "EmiPs4";
-  char* WIFIPass = "34263276";
+  char* FTPPass = "Upload";
+  char* WIFISSID = "ESP8266";
+  char* WIFIPass = "12345678";
   IPAddress IP = IPAddress(13,13,13,13);
   IPAddress Subnet = IPAddress(255,255,255,0);
 };
